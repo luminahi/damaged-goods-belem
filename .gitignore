@@ -1,0 +1,6 @@
+.vscode/
+build/
+data/
+node_modules/
+.prettierrc
+favicon.ico

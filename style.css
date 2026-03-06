@@ -1,0 +1,203 @@
+html {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  user-select: none;
+}
+
+/* Common */
+
+body {
+  background-color: rgb(200, 200, 250);
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 30px;
+  margin-block: 8px;
+  font-style: italic;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+th {
+  background-color: rgb(189, 189, 189);
+}
+
+/* Table */
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 0 auto;
+}
+
+th,
+td {
+  border: 2px solid black;
+  text-align: center;
+}
+
+th {
+  padding: 8px;
+}
+
+#to-remove .info-spot {
+  display: none;
+}
+
+/* Pallet Info */
+
+.pallet-info {
+  display: flex;
+  font-size: 24px;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.pallet-info p {
+  font-family: "Times New Roman", Times, serif;
+  /* margin: 4px; */
+}
+
+.pallet-info span.pallet {
+  font-size: 24px;
+}
+
+.pallet-header {
+  border: 3px solid black;
+  border-radius: 10px;
+  background-color: lightgray;
+  margin: 36px auto;
+  width: 820px;
+}
+
+/* button */
+
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.btn {
+  border: 2px solid black;
+  border-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 0px;
+  min-width: 180px;
+  padding: 20px;
+  margin-block: 10px;
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  font-family: "Courier New", Courier, monospace;
+  box-shadow: 8px 8px;
+  background-color: lightgray;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#btn-pallet {
+  border: 2px solid black;
+  border-start-end-radius: 10px;
+  border-start-start-radius: 10px;
+  min-width: 200px;
+  margin-block: 10px;
+  padding: 20px;
+  display: block;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  box-shadow: 8px 8px;
+  background-color: lightgray;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  position: relative;
+  box-shadow: 3px 3px;
+  left: 5px;
+  top: 5px;
+  background-color: rgb(160, 160, 160);
+}
+
+/* Info */
+
+#info {
+  display: grid;
+  grid-template-columns: repeat(3, 256px);
+  grid-template-rows: 36px 36px 36px;
+  gap: 16px;
+  justify-content: center;
+  line-height: 36px;
+}
+
+#info .info-box {
+  border-bottom: 2px solid black;
+}
+
+#info p {
+  margin: 0;
+  font-weight: bold;
+  text-align: start;
+}
+
+.info-box span {
+  font-size: 20px;
+  font-style: italic;
+}
+
+#date-info {
+  font-size: 20px;
+  border: 0;
+  background-color: rgb(200, 200, 255);
+  font-weight: bold;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgb(255, 255, 255);
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgb(238, 238, 238);
+}
+
+/* Common Sections */
+
+#info,
+.item-table,
+.control {
+  margin-block: 48px;
+}
+
+.item-table {
+  display: none;
+}
+
+/* Modal */
+
+#modal-container dialog {
+  background-color: rgb(230, 30, 30);
+  text-align: center;
+  width: 480px;
+  font-weight: bold;
+  font-size: 36px;
+  font-family: "Courier New", Courier, monospace;
+  border-radius: 10px;
+  user-select: none;
+  border: 5px solid black;
+}
+
+#modal-container dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}

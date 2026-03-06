@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./style.css" rel="stylesheet" />
+    <title>Avaria Belém</title>
+  </head>
+  <body>
+    <h1>Avaria Belém</h1>
+
+    <div id="modal-container">
+      <dialog>
+        <p>Por favor, escolha um número válido para a Palete!</p>
+      </dialog>
+    </div>
+
+    <div class="control to-hide">
+      <h3>Selecione um ou mais documentos e defina o número da Palete.</h3>
+      <form class="btns">
+        <div>
+          <label
+            title="Documentos avaria do tipo 33"
+            class="btn"
+            id="damaged-btn"
+            for="damaged-input"
+            >Documento Avaria</label
+          >
+          <input hidden id="damaged-input" type="file" multiple />
+        </div>
+        <div>
+          <label
+            title="Estoque Diretíssimo / Mercadoria Ambev"
+            class="btn"
+            id="storage-btn"
+            for="storage-input"
+            >Estoques a Remover</label
+          >
+          <input multiple hidden id="storage-input" type="file" />
+        </div>
+        <div>
+          <input
+            required
+            id="btn-pallet"
+            placeholder="Nº da Palete"
+            max="99"
+            min="1"
+            type="number"
+          />
+        </div>
+      </form>
+    </div>
+
+    <div class="control to-hide">
+      <h3>Imprima o documento desejado.</h3>
+      <form class="btns">
+        <div>
+          <div
+            title="Imprima mercadoria com quantidade até 10"
+            id="btn-lt-10"
+            class="btn"
+          >
+            1 ~ 10
+          </div>
+        </div>
+        <div>
+          <div
+            title="Imprima mercadoria acima de 10"
+            id="btn-gt-10"
+            class="btn"
+          >
+            > 10
+          </div>
+        </div>
+        <div>
+          <div
+            title="Baseado nos estoques escolhidos"
+            id="btn-to-remove"
+            class="btn"
+          >
+            Itens a Retirar
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div id="info-container">
+      <div id="info">
+        <div class="info-box">
+          <p>Destino: <span>Rua Belém</span></p>
+        </div>
+
+        <div class="info-box">
+          <p>Código CNPJ: <span>7507</span></p>
+        </div>
+
+        <div class="info-box">
+          <p>Lançamento:</p>
+        </div>
+
+        <div class="info-box">
+          <p>Placa: <span>LPB-5E34</span></p>
+        </div>
+
+        <div class="info-box">
+          <p>
+            Motorista:
+            <span>De Lima</span>
+          </p>
+        </div>
+
+        <div class="info-box">
+          <p>Nota:</p>
+        </div>
+
+        <div class="info-box">
+          <p>
+            Data: <span><input id="date-info" type="date" /></span>
+          </p>
+        </div>
+
+        <div class="info-box">
+          <p>CPD:</p>
+        </div>
+
+        <div class="info-box">
+          <p>Gerência:</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="lt-10" class="item-table to-hide">
+      <div class="pallet-header">
+        <h2>Quantidade até 10 - <strong>Palete Nº:</strong> <span class="pallet"></span></h2>
+        <div class="pallet-info">
+          <p><strong>Valor total: </strong><span id="lt-10-total">N/D</span></p>
+          <p><strong>Itens únicos: </strong><span id="lt-10-unique"></span> </p>
+          <p><strong>Soma dos itens: </strong><span id="lt-10-qty"></span> </p>
+        </div>
+      </div>
+
+      <div class="info-spot"></div>
+
+      <table id="item-table-lt-10">
+        <thead>
+          <tr>
+            <th>Nº</th>
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>QTD</th>
+            <th>Valor Un.</th>
+            <th>Valor Total</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div id="gt-10" class="item-table to-hide">
+      <div class="pallet-header">
+        <h2>Quantidade superior a 10 - Palete N°: <span class="pallet"></span></h2>
+        <div class="pallet-info">
+          <p><strong>Valor total: </strong><span id="gt-10-total">N/D</span></p>
+          <p><strong>Itens únicos: </strong><span id="gt-10-unique"></span> </p>
+          <p><strong>Soma dos itens: </strong><span id="gt-10-qty"></span> </p>
+        </div>
+      </div>
+
+      <div class="info-spot"></div>
+
+      <table id="item-table-gt-10">
+        <thead>
+          <tr>
+            <th>Nº</th>
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>QTD</th>
+            <th>Valor Un.</th>
+            <th>Valor Total</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div id="to-remove" class="item-table to-hide">
+      <div class="pallet-header">
+        <h2>Mercadoria a retirar - Palete N°: <span class="pallet"></span></h2>
+        <div class="pallet-info">
+          <p><strong>Valor total: </strong><span id="to-remove-total">N/D</span></p>
+          <p><strong>Itens únicos: </strong><span id="to-remove-unique"></span> </p>
+          <p><strong>Soma dos itens: </strong><span id="to-remove-qty"></span> </p>
+        </div>
+      </div>
+
+      <div class="info-spot"></div>
+
+      <table id="removed-table">
+        <thead>
+          <tr>
+            <th>Nº</th>
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>QTD</th>
+            <th>Valor Un.</th>
+            <th>Valor Total</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </body>
+  <script src="./build/out.js"></script>
+</html>
